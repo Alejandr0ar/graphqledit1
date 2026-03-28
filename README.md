@@ -41,7 +41,7 @@ Clic derecho sobre el área de Query muestra la opción **"Generar Introspecció
 1. Compilar el add-on:
    ```bash
    cd zap-extensions
-   ./gradlew :addOns:graphqledit:build
+   ./gradlew :addOns:graphqledit1:build
    ```
 
 2. El archivo `.zap` generado se encuentra en `addOns/graphqledit/build/`.
