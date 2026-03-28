@@ -14,7 +14,7 @@ import org.zaproxy.zap.view.HttpPanelManager.HttpPanelViewFactory;
 
 public class ExtensionGraphqlEdit extends ExtensionAdaptor {
 
-    public static final String NAME = "ExtensionHttpPanelJsonView";
+    public static final String NAME = "ExtensionHttpPanelGraphqledit1View";
 
     public ExtensionGraphqlEdit() {
         super(NAME);
