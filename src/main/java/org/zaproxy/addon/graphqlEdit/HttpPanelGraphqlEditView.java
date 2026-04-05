@@ -11,6 +11,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.FlowLayout;
+import java.util.List;
 import java.util.regex.Pattern;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
@@ -30,12 +31,14 @@ import org.zaproxy.addon.graphqlEdit.internal.GraphqlEditFormatter;
 import org.zaproxy.zap.extension.httppanel.Message;
 import org.zaproxy.zap.extension.httppanel.view.AbstractStringHttpPanelViewModel;
 import org.zaproxy.zap.extension.httppanel.view.HttpPanelView;
+import org.zaproxy.zap.extension.search.SearchMatch;
+import org.zaproxy.zap.extension.search.SearchableHttpPanelView;
 import org.zaproxy.zap.extension.httppanel.view.HttpPanelViewModel;
 import org.zaproxy.zap.extension.httppanel.view.HttpPanelViewModelEvent;
 import org.zaproxy.zap.extension.httppanel.view.HttpPanelViewModelListener;
 import org.zaproxy.zap.extension.httppanel.view.impl.models.http.request.RequestBodyStringHttpPanelViewModel;
 
-public class HttpPanelGraphqlEditView implements HttpPanelView, HttpPanelViewModelListener {
+public class HttpPanelGraphqlEditView implements HttpPanelView, HttpPanelViewModelListener, SearchableHttpPanelView {
 
     public static final String NAME = "HttpPanelGraphqlEditView";
     private static final String CAPTION_NAME = "GraphQL Edit";
@@ -329,6 +332,16 @@ public class HttpPanelGraphqlEditView implements HttpPanelView, HttpPanelViewMod
         if (selected) {
             graphqlEditArea.requestFocusInWindow();
         }
+    }
+
+    @Override
+    public void search(Pattern p, List<SearchMatch> matches) {
+        graphqlEditArea.search(p, matches);
+    }
+
+    @Override
+    public void highlight(SearchMatch sm) {
+        graphqlEditArea.highlight(sm);
     }
 
     @Override
